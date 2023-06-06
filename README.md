@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development
 
-Clone the repository and install all the necessary dependencies (yarn is highly recommended)
+Clone the repository and install all the necessary dependencies
 
 ```sh
 $ git clone https://github.com/GrapesJS/grapesjs.git
