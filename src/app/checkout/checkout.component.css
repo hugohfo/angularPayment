@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.container:after{
+  content: '';
+  display: block;
+  position: fixed;
+  background-color: #01ee55;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+}
+
+.form {
+  flex: 2;
+  background-color: #fffefe;
+  padding-left: 180px;
+  align-self: center;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.form-item {
+  flex: 1;
+  margin-right: 10%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.custom-button {
+  background-color: #01ee55 !important;
+  color: white !important;
+  font-size: 16px;
+  width: 200px;
+  margin-left: auto;
+  margin-top: 20px;
+  padding: 30px 46px;
+}
+
+.custom-button:disabled {
+  font-size: 12px;
+  opacity: 0.3;
+  cursor: not-allowed;
+  padding: 30px 46px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+}
+
+.back-action{
+  color: #fff;
+  padding: 10px 0;
+  vertical-align: middle;
+  font-size: 17px;
+  margin-bottom: 100px;
+  margin-top: -100px;
+}
+
+.back-action .mat-icon{
+  font-size: 20px;
+  height: 17px;
+}
+
+.card,
+.form {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.column-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  max-width: 670px;
+}
+
+
+.step {
+  color: #01ee55 !important;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.step-mobile{
+  display: none;
+  color: #fff;
+  padding: 10px 0;
+  vertical-align: middle;
+  font-size: 30px;
+  margin-bottom: 80px;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.step-mobile .mat-icon{
+  font-size: 40px;
+  height: 33px;
+  width: auto;
+}
+
+.custom-stepper .mat-horizontal-stepper-header {
+  position: relative;
+}
+
+.custom-stepper .mat-horizontal-stepper-header::after {
+  content: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Circle_arrow_right_font_awesome.svg/512px-Circle_arrow_right_font_awesome.svg.png");
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+}
+
+
+.custom-stepper .mat-stepper-horizontal-line {
+  display: none;
+}
+
+::ng-deep .mat-step-icon {
+  width: 45px !important;
+  height: 45px !important;
+}
+
+::ng-deep .mat-horizontal-stepper-header:first-child {
+  padding-left: 0px;
+}
+
+::ng-deep .mat-horizontal-stepper-header::after {
+  content: "arrow_forward_ios";
+  font-family: "Material Icons";
+  font-size: 30px;
+  color: #01ee55 !important;
+  position: relative;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+::ng-deep .mat-horizontal-stepper-header:last-child::after {
+  display: none;
+}
+
+::ng-deep .mat-stepper-horizontal-line {
+  display: none;
+  color: #01ee55 !important;
+}
+
+::ng-deep .mat-step-icon {
+  width: 45px !important;
+  height: 45px !important;
+  background-color: #01ee55 !important;
+}
+
+::ng-deep .mat-step-icon-state-number {
+  background-color: transparent !important;
+  border: 1px solid #01ee55 !important;
+}
+
+::ng-deep .mat-step-icon-content > span {
+  color: #01ee55 !important;
+}
+
+::ng-deep .mat-step-icon .mat-icon,
+.mat-step-icon-state-number {
+  font-size: 24px !important;
+  height: auto !important;
+  width: auto !important;
+}
+
+::ng-deep .mat-step-header:hover:not([aria-disabled]) {
+  background-color: transparent;
+}
+::ng-deep .mat-step-text-label {
+  color: #01ee55 !important;
+}
+.mat-step-text-label {
+  color: #01ee55 !important;
+}
+
+
+::ng-deep input.mat-input-element {
+  color: #484a4c !important;
+}
+
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #25b061 !important;
+}
+
+::ng-deep .mdc-text-field--filled .mdc-line-ripple ::after {
+  color: #01ee55 !important;
+}
+
+
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+  background-color: #fb5053 !important;
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+  color: #01ee55 !important
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled),
+.mat-mdc-form-field-focus-overlay {
+  background-color: white;
+}
+
+.mat-spinner circle, .mat-progress-spinner circle {
+  stroke: #01ee55 !important
+}
+
+
+
+@media (max-width: 1200px){
+  .container:after {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+  }
+  .card-container{
+    align-items: center;
+  }
+  .step{
+    display: none;
+  }
+  .form-item:nth-child(2){
+    width: 40% !important;
+    flex: none;
+    margin-right: 0;
+  }
+  .input-cpf{
+    width: 100%;
+    margin: 0;
+  }
+  .custom-button {
+    width: 100%;
+  }
+  .back-action{
+    display: none;
+  }
+  .step-mobile{
+    display: block;
+  }
+}
+@media (max-width: 600px){
+  .container:after {
+    height: 90vw;
+    position: absolute;
+  }
+}

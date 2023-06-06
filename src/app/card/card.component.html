@@ -1,0 +1,21 @@
+<link href="https://fonts.googleapis.com/css2?family=Kredit+Shine&display=swap" rel="stylesheet">
+
+<div class="card">
+  <img *ngIf="cardType" class="card-logo" [src]="cardType" alt="Logo do cartão">
+  <div class="card-number">
+    {{ checkoutForm.get('creditCard?.cardNumber')?.value | cardNumber }}
+  </div>
+  <div class="card-holder">
+    {{ checkoutForm.get('creditCard?.cardHolderName')?.value }}
+  </div>
+  <div class="card-details">
+    <div class="card-expiration">
+      <p *ngIf="checkoutForm.get('creditCard?.expirationDate')?.value ">VALIDADE</p>
+      {{ checkoutForm.get('creditCard?.expirationDate')?.value | expirationDate }}
+    </div>
+    <div class="card-cvv">
+      <p *ngIf="checkoutForm.get('creditCard.cvv')?.value ">CVV</p>
+      {{ checkoutForm.get('creditCard?.cvv')?.value }}
+    </div>
+  </div>
+</div>

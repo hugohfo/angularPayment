@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Kredit Shine';
+  src: url('../../assets/fonts/kredit_front.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.card {
+  font-family: 'Kredit Shine', sans-serif;
+  width: 460px;
+  height: 268px;
+  background: linear-gradient(25deg, #747474, #000000);
+  border-radius: 12px;
+  box-shadow: 7px 7px 7px 0px rgba(0, 0, 0, 0.2);
+  color: white;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.card .card-number {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  letter-spacing: 2px;
+  font-size: 25px;
+}
+
+.card .card-holder {
+  position: absolute;
+  top: 47%;
+  left: 5%;
+  text-transform: uppercase;
+  font-size: 20px;
+  opacity: .5;
+}
+
+.card .card-details {
+  position: absolute;
+  top: 68%;
+  left: 5%;
+  display: flex;
+  justify-content: flex-start;
+  width: calc(100% - 40px);
+  gap: 15%;
+}
+
+.card .card-expiration {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.card .card-cvv {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.card-logo {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 20%;
+  height: auto;
+}
+
+.card-expiration p,  .card-cvv p {
+  line-height: 0;
+}
+
+@media (max-width: 1200px){
+  .card {
+    max-width: 635px;
+    max-height: 380px;
+    width: calc(100vw - 60px);
+    height: calc((100vw/1.6) - 60px);
+    margin-bottom: 5%;
+  }
+
+  .card .card-number {
+    font-size: 35px;
+  }
+  .card .card-holder {
+    font-size: 25px;
+  }
+  .card .card-expiration,.card .card-cvv {
+    font-size: 20px;
+  }
+
+}
+
+
+@media (max-width: 930px){
+
+  .card .card-number {
+    font-size: 4.2vw;
+  }
+  .card .card-holder {
+    font-size: 3.5vw;
+  }
+  .card .card-expiration,.card .card-cvv {
+    font-size: 3vw;
+  }
+}

@@ -1,0 +1,120 @@
+
+
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="card-container">
+    <div class="card">
+
+
+      <div class="step-mobile">
+        <mat-icon>arrow_back</mat-icon> Etapa 2 de 3
+      </div>
+      <div class="back-action">
+        <mat-icon>arrow_back</mat-icon> Alterar forma de pagamento
+      </div>
+      <app-card [checkoutForm]="checkoutForm" [cardType]="cardType"></app-card>
+    </div>
+  </div>
+
+  <div class="form column-form">
+    <div class="step">
+      <mat-horizontal-stepper [selectedIndex]="1">
+        <mat-step label="Etapa 1" completed>
+          <ng-template matStepperIcon="edit">
+            <mat-icon>done</mat-icon>
+          </ng-template>
+          <ng-template matStepLabel>Carrinho</ng-template>
+        </mat-step>
+        <mat-step label="Etapa 2" class="mat-step-icon-edit">
+          <ng-template matStepLabel>Pagamento</ng-template>
+        </mat-step>
+        <mat-step label="Etapa 3">
+          <ng-template matStepLabel>Pedido Finalizado</ng-template>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+
+    <form [formGroup]="checkoutForm">
+      <div class="panel panel-default" formGroupName="creditCard" class="grid-container">
+        <mat-form-field appearance="fill" class="grid-item full-width">
+          <mat-label>Número do cartão</mat-label>
+          <input matInput formControlName="cardNumber" placeholder="Número do cartão" mask="0000 0000 0000 0000">
+          <mat-error *ngIf="checkoutForm.get('creditCard.cardNumber')?.errors?.['required']">
+            Este campo é obrigatório.
+          </mat-error>
+          <mat-error *ngIf="checkoutForm.get('creditCard.cardNumber')?.errors?.['pattern'] || checkoutForm.get('creditCard.cardNumber')?.errors?.['cardNumberInvalid']">
+            Número do cartão inválido.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="grid-item full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="cardHolderName" placeholder="Nome">
+          <mat-error *ngIf="checkoutForm.get('creditCard.cardHolderName')?.errors?.['required']">
+            Este campo é obrigatório
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Validade (MM/AA)</mat-label>
+            <input matInput formControlName="expirationDate" placeholder="Validade (MM/AA)" mask="00/00">
+            <mat-error *ngIf="checkoutForm.get('creditCard.expirationDate')?.errors?.['required']">
+              Este campo é obrigatório.
+            </mat-error>
+            <mat-error *ngIf="checkoutForm.get('creditCard.expirationDate')?.errors?.['pattern']">
+              Data inválida
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="form-item">
+            <mat-label>CVV</mat-label>
+            <input matInput formControlName="cvv" placeholder="CVV" mask="000">
+            <mat-error *ngIf="checkoutForm.get('creditCard.cvv')?.errors?.['required']">
+              CVV não informado
+            </mat-error>
+            <mat-error *ngIf="checkoutForm.get('creditCard.cvv')?.errors?.['pattern']">
+              Por favor, insira um CVV válido.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="input-cpf">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" placeholder="CPF" mask="000.000.000-00">
+            <mat-error *ngIf="checkoutForm.get('creditCard.cpf')?.errors?.['required']">
+              Este campo é obrigatório.
+            </mat-error>
+            <mat-error *ngIf="checkoutForm.get('cpf')?.errors?.['pattern']">
+              Número do cartão inválido
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="fill" class="grid-item full-width">
+          <mat-label>Parcelas</mat-label>
+          <select matNativeControl formControlName="installments" placeholder="Parcelas">
+            <option value="" disabled selected>Escolha o número de parcelas</option>
+            <option *ngFor="let option of installmentOptions" [value]="option">{{ option }}x {{
+              getFormattedValue(option) }}</option>
+          </select>
+          <mat-error *ngIf="checkoutForm.get('creditCard.installments')?.errors?.['required']">
+            Escolha o número de parcelas.
+          </mat-error>
+          <mat-error *ngIf="checkoutForm.get('creditCard.installments')?.errors?.['min']">
+            O número mínimo de parcelas é 1.
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-container">
+          <button mat-raised-button color="accent" class="custom-button" (click)="submitForm()"
+            [disabled]="checkoutForm.invalid || isLoading">
+            {{ isLoading ? 'Processando...' : 'Pagar' }}
+          </button>
+        </div>
+      </div>
+      <mat-spinner *ngIf="isLoading" color="warn" ></mat-spinner>
+    </form>
+  </div>
+
+</div>
