@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Clone the repository and install all the necessary dependencies
 
 ```sh
-$ git clone https://github.com/GrapesJS/grapesjs.git
+$ git clone https://github.com/hugohfo/angularPayment.git
 $ npm install
 ```
 
